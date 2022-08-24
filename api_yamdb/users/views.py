@@ -1,6 +1,6 @@
 import uuid
 
-from api.permissions import IsAuthenticatedOrAdmin
+from api.permissions import IsAdmin
 from api.serializers import (TokenSerializer, UserEditSerializer,
                              UserListSerializer, UserSerializer)
 from django.core.mail import send_mail
@@ -55,13 +55,13 @@ class TokenView(APIView):
 
             if user.confirmation_code != confirmation_code:
                 return Response(
-                    {"token": "incorrect"},
+                    {'token': 'incorrect'},
                     status=status.HTTP_400_BAD_REQUEST
                 )
 
             refresh = RefreshToken.for_user(user)
             access_token = str(refresh.access_token)
-            return Response({"token": f"{access_token}"})
+            return Response({'token': f'{access_token}'})
         return Response(
             serializer.errors,
             status=status.HTTP_400_BAD_REQUEST
@@ -69,10 +69,10 @@ class TokenView(APIView):
 
 
 class UsersViewSet(viewsets.ModelViewSet):
-    lookup_field = "username"
+    lookup_field = 'username'
     queryset = User.objects.all()
     pagination_class = LimitOffsetPagination
-    permission_classes = (IsAuthenticatedOrAdmin,)
+    permission_classes = (IsAdmin,)
     serializer_class = UserListSerializer
     filter_backends = (filters.OrderingFilter,)
 

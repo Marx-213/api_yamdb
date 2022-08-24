@@ -11,7 +11,7 @@ class CurrentTitleIdDefault:
         return serializer_field.context['view'].kwargs['title_id']
 
     def __repr__(self):
-        return '%s()' % self.__class__.__name__
+        return self.__class__.__name__
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -101,12 +101,12 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     def validate_username(self, value):
-        """
+        '''
         Валидация username
-        """
+        '''
         if value.lower() == 'me':
             raise serializers.ValidationError(
-                "Нельзя создавать юзера с ником me"
+                'Нельзя создавать юзера с ником me'
             )
         return value
 
