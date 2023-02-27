@@ -1,4 +1,10 @@
 # Проект YaMDb
+
+![Python](https://img.shields.io/badge/Python_3.7-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/django_2.2.9-%23092E20?style=for-the-badge&logo=django&logoColor=white)
+![Python](https://img.shields.io/badge/drf_3.12.4-%23092E20?style=for-the-badge&logo=django&logoColor=white)
+![Python](https://img.shields.io/badge/flake8_5.04-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
 ### Описание
 Произведения в проекте YaMDb  делятся на следующие категории: «Книги», «Фильмы», «Музыка».
 
